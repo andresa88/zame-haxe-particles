@@ -1,12 +1,26 @@
 package org.zamedev.particles.renderers;
 
-#if (html5 && dom)
+import lime.app.Application;
+
+#if ((html5 && dom) && !openfljs)
     import openfl.display.OpenGLView;
 #end
 
 class DefaultParticleRenderer {
     public static function createInstance(manualUpdate : Bool = false) : ParticleSystemRenderer {
-        #if html5
+        #if openfljs
+        switch (Application.current.window.backend.renderType) {
+            case 'dom':
+                return new TilemapParticleRenderer();
+                
+            case 'webgl':
+                return new TilemapParticleRenderer();
+                
+            default:
+                return new TilemapParticleRenderer();
+                
+        }
+        #elseif html5
             #if dom
                 if (!manualUpdate && OpenGLView.isSupported) {
                     return new GLViewParticleRenderer();

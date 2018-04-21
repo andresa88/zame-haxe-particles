@@ -2,7 +2,7 @@ package org.zamedev.particles.internal;
 
 import openfl.display.OpenGLView;
 
-#if (html5 && dom)
+#if ((html5 && dom) || openfljs)
 
 import js.Browser;
 import openfl._internal.renderer.dom.DOMRenderer;

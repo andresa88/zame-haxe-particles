@@ -4,20 +4,24 @@ import openfl.display.Bitmap;
 import openfl.display.Sprite;
 import openfl.events.Event;
 
+#if openfljs
+import lime.app.Application;
+#end
+
 #if (openfl < "5.1.0")
     import openfl.gl.GL;
 #else
     import lime.graphics.opengl.GL;
 #end
 
-#if (native || webgl || flash)
+#if (native || webgl || flash || openfljs)
     import openfl.display.BlendMode;
     import openfl.filters.ColorMatrixFilter;
 #end
 
 typedef SpriteInfo = {
     bitmap : Bitmap,
-    #if (native || webgl || flash)
+    #if (native || webgl || flash || openfljs)
         colorMatrixFilter : ColorMatrixFilter,
     #end
     #if zameparticles_use_sprite_visibility
@@ -59,7 +63,7 @@ class SpritesParticleRenderer extends Sprite implements ParticleSystemRenderer {
                 spriteList.push({
                     bitmap: bitmap,
                     visible: false,
-                    #if (native || webgl || flash)
+                    #if (native || webgl || flash || openfljs)
                         colorMatrixFilter: new ColorMatrixFilter(),
                     #end
                 });
@@ -119,7 +123,7 @@ class SpritesParticleRenderer extends Sprite implements ParticleSystemRenderer {
 
             var ps = data.ps;
 
-            #if (native || webgl || flash)
+            #if (native || webgl || flash || openfljs)
                 var blendMode = if (ps.blendFuncSource == GL.DST_COLOR) {
                     BlendMode.MULTIPLY;
                 } else if (
@@ -172,7 +176,7 @@ class SpritesParticleRenderer extends Sprite implements ParticleSystemRenderer {
 
                         info = {
                             bitmap: bitmap,
-                            #if (native || webgl || flash)
+                            #if (native || webgl || flash || openfljs)
                                 colorMatrixFilter: new ColorMatrixFilter(),
                             #end
                         };
@@ -201,7 +205,10 @@ class SpritesParticleRenderer extends Sprite implements ParticleSystemRenderer {
                 bitmap.x = particle.position.x * ps.particleScaleX - halfWidth * matA - halfHeight * matB;
                 bitmap.y = particle.position.y * ps.particleScaleY - halfWidth * matC - halfHeight * matD;
 
-                #if (native || webgl || flash)
+                #if (native || webgl || flash || openfljs)
+                    #if (openfljs) 
+                    if (Application.current.window.backend.renderType == 'webgl') {
+                    #end
                     var colorMatrix = info.colorMatrixFilter.matrix;
                     colorMatrix[0] = particle.color.r;
                     colorMatrix[5 + 1] = particle.color.g;
@@ -211,6 +218,9 @@ class SpritesParticleRenderer extends Sprite implements ParticleSystemRenderer {
                     info.colorMatrixFilter.matrix = colorMatrix;
                     bitmap.filters = [ info.colorMatrixFilter ];
                     bitmap.blendMode = blendMode;
+                    #if (openfljs) 
+                    }
+                    #end
                 #end
 
                 #if (html5 && (canvas || dom))

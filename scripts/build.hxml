@@ -1,0 +1,22 @@
+-js ../lib/_gen/_.js
+ImportAll
+# -lib actuate
+#-lib hxgenjs
+-cp ../node_modules/hxgenjs/src
+#andres -cp ../node_modules/tink_macro/src
+#andres -cp ../node_modules/tink_core/src
+--macro genjs.Generator.use()
+-cp ../
+# -D hxextern
+# -D tsextern
+-cp ../node_modules/openfl/lib/
+-cp ../lib/
+-D openfl=7.1.2 
+-D lime=6.2.0
+-D commonjs 
+-D html5 
+-D lime_opengl
+-D canvas
+-D openfljs
+--remap flash:openfl
+--no-inline

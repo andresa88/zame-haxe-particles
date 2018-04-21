@@ -7,7 +7,7 @@ import openfl.display.Tilemap;
 import openfl.display.DisplayObject;
 
 class TilemapExt extends Tilemap {
-    private override function __hitTest(
+    private #if !openfljs override #end function __hitTest(
         x : Float,
         y : Float,
         shapeFlag : Bool,

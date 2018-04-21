@@ -1,0 +1,29 @@
+{
+  "name": "zame-haxe-particles",
+  "version": "1.0.2",
+  "description": "*(and for KHA, see below)*",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run build-lib",
+    "_build": "npm run build-lib && npm run build-dist",
+    "build-dist": "webpack --config webpack.dev.js && webpack --config webpack.prod.js",
+    "build-lib": "cd scripts && haxe build.hxml",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andresa88/zame-haxe-particles.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andresa88/zame-haxe-particles/issues"
+  },
+  "homepage": "https://github.com/andresa88/zame-haxe-particles#readme",
+  "devDependencies": {
+    "haxe": "^5.0.0",
+    "hxgenjs": "kevinresol/hxgenjs",
+    "openfl": "^7.1.2",
+    "lime": "openfl/lime#develop"
+  }
+}

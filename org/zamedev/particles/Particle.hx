@@ -9,17 +9,17 @@ class Particle {
     public var direction : ParticleVector;
     public var color : ParticleColor;
     public var colorDelta : ParticleColor;
-    public var rotation : Float;
-    public var rotationDelta : Float;
-    public var radius : Float;
-    public var radiusDelta : Float;
-    public var angle : Float;
-    public var angleDelta : Float;
-    public var particleSize : Float;
-    public var particleSizeDelta : Float;
-    public var radialAcceleration : Float;
-    public var tangentialAcceleration : Float;
-    public var timeToLive : Float;
+    public var rotation : Float = 0;
+    public var rotationDelta : Float = 0;
+    public var radius : Float = 0;
+    public var radiusDelta : Float = 0;
+    public var angle : Float = 0;
+    public var angleDelta : Float = 0;
+    public var particleSize : Float = 0;
+    public var particleSizeDelta : Float = 0;
+    public var radialAcceleration : Float = 0;
+    public var tangentialAcceleration : Float = 0;
+    public var timeToLive : Float = 0;
 
     public function new() : Void {
         position = { x: 0.0, y: 0.0 };
