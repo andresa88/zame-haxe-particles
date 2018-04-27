@@ -1,7 +1,7 @@
 {
-  "name": "zame-haxe-particles",
-  "version": "1.0.2",
-  "description": "*(and for KHA, see below)*",
+  "name": "zame-particles",
+  "version": "2.0.0",
+  "description": "Particle emitter for OpenFL compatible with Particle Designer",
   "main": "index.js",
   "scripts": {
     "build": "npm run build-lib",
@@ -13,14 +13,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/andresa88/zame-haxe-particles.git"
+    "url": "https://github.com/restorer/zame-haxe-particles.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/andresa88/zame-haxe-particles/issues"
+    "url": "https://github.com/restorer/zame-haxe-particles/issues"
   },
-  "homepage": "https://github.com/andresa88/zame-haxe-particles#readme",
+  "peerDependencies": {
+    "openfl": "^7.1.2",
+    "webpack": "^2.0.0 || ^3.0.0"
+  },
+  "homepage": "https://github.com/restorer/zame-haxe-particles#readme",
   "devDependencies": {
     "haxe": "^5.0.0",
     "hxgenjs": "kevinresol/hxgenjs",
