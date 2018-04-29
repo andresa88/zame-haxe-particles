@@ -6,11 +6,11 @@
   "module": "index.esm.js",
   "sideEffects": false,
   "scripts": {
-    "build": "npm run build-lib && npm run modifyExport",
+    "build": "npm run build-lib && npm run convertToES2015",
     "_build": "npm run build-lib && npm run build-dist",
     "build-dist": "webpack --config webpack.dev.js && webpack --config webpack.prod.js",
     "build-lib": "cd scripts && haxe build.hxml",
-    "modifyExport": "cd scripts && node modify-exports",
+    "convertToES2015": "cd scripts && node convert-to-es2015",
     "prepublishOnly": "npm run build",
     "install": "npm run build"
   },
