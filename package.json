@@ -10,7 +10,7 @@
     "_build": "npm run build-lib && npm run build-dist",
     "build-dist": "webpack --config webpack.dev.js && webpack --config webpack.prod.js",
     "build-lib": "cd scripts && haxe build.hxml",
-    "modifyExport": "cd scripts && node tools",
+    "modifyExport": "cd scripts && node modify-exports",
     "prepublishOnly": "npm run build",
     "install": "npm run build"
   },
