@@ -1,13 +1,16 @@
 {
-  "name": "zame-particles",
+  "name": "zame-haxe-particles",
   "version": "2.0.0",
   "description": "Particle emitter for OpenFL compatible with Particle Designer",
   "main": "index.js",
+  "module": "index.esm.js",
+  "sideEffects": false,
   "scripts": {
-    "build": "npm run build-lib",
+    "build": "npm run build-lib && npm run modifyExport",
     "_build": "npm run build-lib && npm run build-dist",
     "build-dist": "webpack --config webpack.dev.js && webpack --config webpack.prod.js",
     "build-lib": "cd scripts && haxe build.hxml",
+    "modifyExport": "cd scripts && node tools",
     "prepublishOnly": "npm run build",
     "install": "npm run build"
   },
@@ -26,9 +29,10 @@
   },
   "homepage": "https://github.com/restorer/zame-haxe-particles#readme",
   "devDependencies": {
+    "globby": "^8.0.1",
     "haxe": "^5.0.0",
     "hxgenjs": "kevinresol/hxgenjs",
-    "openfl": "^7.1.2",
-    "lime": "openfl/lime#develop"
+    "lime": "openfl/lime#develop",
+    "openfl": "^7.1.2"
   }
 }
