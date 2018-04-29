@@ -5,3 +5,7 @@ export { default as SpritesParticleRenderer } from './lib/org/zamedev/particles/
 export { default as TilemapParticleRenderer } from './lib/org/zamedev/particles/renderers/TilemapParticleRenderer';
 export { default as ParticleSystemRenderer } from './lib/org/zamedev/particles/renderers/ParticleSystemRenderer';
 export { default as ParticleLoader } from './lib/org/zamedev/particles/loaders/ParticleLoader';
+export { default as PixiParticleLoader } from './lib/org/zamedev/particles/loaders/PixiParticleLoader';
+export { default as PexLapParticleLoader } from './lib/org/zamedev/particles/loaders/PexLapParticleLoader';
+export { default as JsonParticleLoader } from './lib/org/zamedev/particles/loaders/JsonParticleLoader';
+export { default as PlistParticleLoader } from './lib/org/zamedev/particles/loaders/PlistParticleLoader';
