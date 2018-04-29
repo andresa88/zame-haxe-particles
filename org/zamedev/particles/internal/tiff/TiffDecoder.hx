@@ -161,8 +161,11 @@ class TiffDecoder {
         pixels.position = 0;
 
         #if js
+            #if openfljs
+            var ba = untyped ByteArray.fromBytes(data);
+            #else
             var ba = ByteArray.fromBytes(data);
-
+            #end
             for (i in 0 ... stripsPerImage) {
                 ba.position = stripOffsets[i];
                 var count = Std.int(stripByteCounts[i] / 4);
