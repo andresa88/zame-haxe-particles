@@ -1,4 +1,8 @@
+.DS_Store
+*.swp
+.vscode
 /zame-particles.zip
 node_modules
 lib/_gen
 package-lock.json
+*.tgz

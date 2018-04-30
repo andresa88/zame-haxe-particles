@@ -1,0 +1,11 @@
+*.DS_Store
+samples
+test
+package-lock.json
+npm-debug.log
+submit-to-haxelib.sh
+*.map
+*.tgz
+todo-stage3d
+_TODO.md
+haxelib.json

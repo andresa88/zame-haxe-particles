@@ -117,6 +117,61 @@ Usually you don't need to choose renderer manually, just use `DefaultParticleRen
 | neko | n/a | **effects:** almost full,<br />**speed:** very slow | **effects:** no,<br />**speed:** almost fast,<br /><br />**best choise** |
 | flash | n/a | **effects:** partial,<br />**speed:** not so slow,<br /><br />**best choise** | **effects:** no,<br />**speed:** not so slow |
 
+
+## NPM openfl
+
+## Installation
+
+```
+npm install --save zame-haxe-particles
+```
+
+## Usage
+
+First import the module
+
+```
+import * as zame from "zame-haxe-particles";
+```
+
+Then you can create a flame that follows the mouse pointer like so:
+
+```
+var manifest = new AssetManifest ();
+manifest.addBitmapData("assets/fire.png");
+manifest.addText("assets/fire.plist");
+
+AssetLibrary.loadFromManifest (manifest).onComplete ((library) => {
+  
+  Assets.registerLibrary ("default", library);
+
+  var renderer = zame.DefaultParticleRenderer.createInstance();
+
+  if (renderer instanceof DisplayObject) {
+    this.stage.addChild(renderer);
+  }
+
+  var ps = zame.ParticleLoader.load("assets/fire.plist");
+  renderer.addParticleSystem(ps);
+
+  this.stage.addEventListener(MouseEvent.MOUSE_MOVE, (e) => {
+    ps.emit(this.stage.mouseX, this.stage.mouseY);
+  });
+
+}).onError ((e) => {
+  console.error(e);
+});
+```
+
+You must create an assets/ directory in your output directory such as dist/assets/. Then take the fire.plist and fire.png files located in the following links and place them in that directory.
+
+https://raw.githubusercontent.com/restorer/zame-haxe-particles/master/samples/minimal/assets/particle/fire.plist
+
+https://raw.githubusercontent.com/restorer/zame-haxe-particles/master/samples/minimal/assets/particle/fire.png
+
+
+
+
 ## Product support
 
 Product still is in development (but not active).
